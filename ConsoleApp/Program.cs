@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using ConsoleApp.Repository;
 using System.Text.Json;
 
 namespace ConsoleApp

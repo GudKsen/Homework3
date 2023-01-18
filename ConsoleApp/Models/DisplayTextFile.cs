@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using ConsoleApp.Repository;
 
 namespace ClassLibrary
 {
@@ -38,10 +39,15 @@ namespace ClassLibrary
                 arr.ArrayWeather = (List<WeatherForecast>)xmlSerializer.Deserialize(reader);
             }
 
-            for (int i = 0; i < arr.ArrayWeather.Count; i++)
+
+            using (StreamWriter writetext = new StreamWriter("D:\\Lesson\\hw3.txt"))
             {
-                File.WriteAllText("D:\\Lesson\\hw3.txt", arr.ArrayWeather[i].ToString());
+                for (int i = 0; i < arr.ArrayWeather.Count; i++)
+                {
+                    writetext.WriteLine(arr.ArrayWeather[i].ToString());
+                }
             }
+
             Console.WriteLine("------------------------------------------------------------\n");
         }
     }
